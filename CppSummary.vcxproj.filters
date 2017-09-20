@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="S1E01_HelloWorld.cpp" />
+    <ClCompile Include="S1E02_Variable.cpp" />
+    <ClCompile Include="S1E03_BasicTypes.cpp" />
+    <ClCompile Include="S1E04_Operators.cpp" />
+    <ClCompile Include="S1E05_Execution.cpp" />
+    <ClCompile Include="S1E06_BasicArray.cpp" />
+    <ClCompile Include="S1E07_Functions.cpp" />
+    <ClCompile Include="S1E08_StructGeomVectorV1.cpp" />
+    <ClCompile Include="S1E09_Pointers.cpp" />
+    <ClCompile Include="S1E10_PointersAsArrays.cpp" />
+    <ClCompile Include="S1E11_ArrayAllocation.cpp" />
+    <ClCompile Include="S1E12_List.cpp" />
+    <ClCompile Include="S1E13_ClassGeomVectorV2.cpp" />
+    <ClCompile Include="S1E14_ClassArrayV1.cpp" />
+  </ItemGroup>
+</Project>
