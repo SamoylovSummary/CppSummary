@@ -156,6 +156,11 @@
     <ClCompile Include="S1E12_List.cpp" />
     <ClCompile Include="S1E13_ClassGeomVectorV2.cpp" />
     <ClCompile Include="S1E14_ClassArrayV1.cpp" />
+    <ClCompile Include="S1E15_Test.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Input.txt" />
+    <Text Include="Output.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
