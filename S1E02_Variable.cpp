@@ -6,7 +6,7 @@
 using namespace std;
 
 // main
-void main_Variable()
+int main_Variable()
 {
 	// Определение (definition) переменной:
 	//   int - тип (целочисленный, со знаком, 4 байта).
@@ -48,4 +48,5 @@ void main_Variable()
 
 	cin.ignore();
 	cin.ignore();
+	return 0;
 }

@@ -64,7 +64,7 @@ int getFirst( CList& list )
 }
 
 // main
-void main_List()
+int main_List()
 {
 	CList list;
 	initializeList( list );
@@ -72,4 +72,5 @@ void main_List()
 	pushBack( list, 2 );
 	popFront( list );
 	popFront( list );
+	return 0;
 }

@@ -5,7 +5,7 @@
 using namespace std;
 
 // main
-void main_BasicArray()
+int main_BasicArray()
 {
 	// Массив 10 целых чисел.
 	// Массив неинициализирован, в нём сейчас мусор.
@@ -47,4 +47,5 @@ void main_BasicArray()
 	cout << endl;
 
 	cin.ignore();
+	return 0;
 }

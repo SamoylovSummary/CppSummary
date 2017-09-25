@@ -43,7 +43,7 @@ CGeomVectorV1 sub( const CGeomVectorV1& v1, const CGeomVectorV1& v2 )
 }
 
 // main
-void main_StructGeomVectorV1()
+int main_StructGeomVectorV1()
 {
 	// Создаём вектор v1.
 	CGeomVectorV1 v1;
@@ -68,4 +68,5 @@ void main_StructGeomVectorV1()
 	}
 
 	cin.ignore();
+	return 0;
 }

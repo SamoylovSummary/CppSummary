@@ -8,7 +8,7 @@ using namespace std;
 int arrayStatic[10];
 
 // main
-void main_ArrayAllocation()
+int main_ArrayAllocation()
 {
 	// Массив на стеке.
 	int arrayLocal[10];
@@ -50,4 +50,5 @@ void main_ArrayAllocation()
 
 	cin.ignore();
 	cin.ignore();
+	return 0;
 }

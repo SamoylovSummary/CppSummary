@@ -5,7 +5,7 @@
 using namespace std;
 
 // main
-void main_PointersAsArrays()
+int main_PointersAsArrays()
 {
 	int a[5] = { 0, 1, 2, 3, 4 };
 
@@ -42,4 +42,5 @@ void main_PointersAsArrays()
 	}
 
 	cin.ignore();
+	return 0;
 }

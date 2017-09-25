@@ -5,7 +5,7 @@
 using namespace std;
 
 // main
-void main_BasicTypes()
+int main_BasicTypes()
 {
 	// Распространённые:
 	int a = 10;        // 4 байта
@@ -50,4 +50,5 @@ void main_BasicTypes()
 	// ci = 10;
 
 	cin.ignore();
+	return 0;
 }

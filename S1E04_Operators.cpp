@@ -5,7 +5,7 @@
 using namespace std;
 
 // main
-void main_Operators()
+int main_Operators()
 {
 	// Целочисленная арифметика:
 	const int a = 5;
@@ -71,4 +71,5 @@ void main_Operators()
 	// ...
 
 	cin.ignore();
+	return 0;
 }

@@ -5,10 +5,11 @@
 using namespace std;
 
 // main
-void main_HelloWorld()
+int main_HelloWorld()
 {
 	cout << "Hello";
 	cin.ignore();
+	return 0;
 }
 
 // Основные типы приложений: консольное, оконное, остальное
@@ -39,14 +40,15 @@ void main_HelloWorld()
 // Пишем приложение Hello World
 //   Код:
 //     #include <iostream>
-//     void main()
+//     int main()
 //     {
 //       std::cout << "Hello";
+//       return 0;
 //     }
 //   Объясняем строчки:
 //     #include
 //     Функция main
-//       void - возвращаемое значение (ничего)
+//       int - возвращаемое значение (целое число - код ошибки)
 //       () - входные аргументы (ничего)
 //       {...} - тело
 //     std::cout
@@ -58,6 +60,7 @@ void main_HelloWorld()
 //         std:: - namespace стандартной библиотеки C++ (без деталей, потом)
 //     "Hello" - строка (без деталей, потом)
 //     ; - конец инструкции (statement)
+//     return 0; - возвращаем из функции main нулевой код ошибки (успех)
 //   Запускаем из студии (F5) - сразу завершается
 //   Зупускаем под отладкой
 //     Выставляем breakpoint (F9) после cout

@@ -49,7 +49,7 @@ void changeGlobalVariable()
 }
 
 // main
-void main_Functions()
+int main_Functions()
 {
 	int x = 2;
 	cout << "x: " << x << endl;
@@ -76,4 +76,5 @@ void main_Functions()
 	cout << "After changeGlobalVariable: " << globalVariable << endl;
 
 	cin.ignore();
+	return 0;
 }

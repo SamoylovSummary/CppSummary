@@ -5,7 +5,7 @@
 using namespace std;
 
 // main
-void main_Pointers()
+int main_Pointers()
 {
 	int x = 10;
 	cout << "x = " << x << endl;
@@ -72,4 +72,5 @@ void main_Pointers()
 	cout << "y = " << y << endl;
 
 	cin.ignore();
+	return 0;
 }

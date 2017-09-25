@@ -5,7 +5,7 @@
 using namespace std;
 
 // main
-void main_Execution()
+int main_Execution()
 {
 	int a = 2;
 
@@ -98,4 +98,5 @@ void main_Execution()
 	}
 
 	cin.ignore();
+	return 0;
 }

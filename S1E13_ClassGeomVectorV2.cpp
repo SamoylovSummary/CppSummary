@@ -88,7 +88,7 @@ int CGeomVectorV2::operator*( const CGeomVectorV2& other ) const
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // main
-void main_ClassGeomVectorV2()
+int main_ClassGeomVectorV2()
 {
 	// Создаём вектор v1.
 	// Поля v1 инициализируются в его конструкторе без параметров.
@@ -120,6 +120,7 @@ void main_ClassGeomVectorV2()
 	( v2 + v3 ).Print();
 
 	cin.ignore();
+	return 0;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
