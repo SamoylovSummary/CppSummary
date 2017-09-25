@@ -18,25 +18,20 @@ public:
 	// Размер массива
 	int Size() const { return size; }
 
-	// Добавление элемента в массив.
-	// В конец массива добавляется count копий element. Размер массива увеличивается на count.
-	// Если нужно буфер массива переалокируется.
-	void Add( int element, int count = 1 );
+	// Добавление элемента в конец массива.
+	void Add( int element );
 
 	// Удалить count элементов начиная с позиции pos.
-	void DeleteAt( int pos, int count = 1 );
+	void DeleteAt( int pos );
+
+	// Удалить все элементы массива.
+	void DeleteAll();
 
 	// Доступ к элементу массива по индексу.
 	int& GetAt( int index );
 
 	// Доступ к элементу массива по индексу.
 	int& operator[]( int index ) { return GetAt( index ); }
-
-	// Задать новый размер массива.
-	// В методе выполняется необходимая переаллокация буффера.
-	// Осторожно, если новый размер больше старого, хвост заполняется случайными значениями.
-	// Для заполнения массива нулями нужно использовать Add( 0, count ).
-	void SetSize( int newSize );
 
 	// Для развлечения сделаем добавление элемента в конец массива в стиле std::cout <<
 	// Оператор возвращает CArrayV1& (ссылку на себя), чтобы можно было писать так:
@@ -49,87 +44,79 @@ public:
 private:
 	// Буфер на куче.
 	int* buffer;
-	// Размер буфера (поле size не должно превышать bufferSize).
-	int bufferSize;
+	// Размер буфера (поле size не должно превышать capacity).
+	int capacity;
 	// Количество элементов в массиве.
 	int size;
+
+	void grow();
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 CArrayV1::CArrayV1() :
 	buffer( 0 ),
-	bufferSize( 0 ),
+	capacity( 0 ),
 	size( 0 )
 {
 }
 
 CArrayV1::~CArrayV1()
 {
-	if( buffer != nullptr ) {
-		delete[] buffer;
-	}
+	delete[] buffer;
 }
 
-void CArrayV1::Add( int element, int count )
+void CArrayV1::Add( int element )
 {
-	assert( count >= 0 );
-
 	// Если надо, расширяем буфер.
-	const int oldSize = size;
-	SetSize( size + count );
+	if( size + 1 > capacity ) {
+		grow();
+	}
 
 	// Записываем element в буфер.
-	for( int i = 0; i < count; i++ ) {
-		buffer[oldSize + i] = element;
-	}
+	assert( size < capacity );
+	buffer[size] = element;
+	size++;
 }
 
-void CArrayV1::DeleteAt( int pos, int count )
+void CArrayV1::DeleteAt( int pos )
 {
 	assert( pos >= 0 );
-	assert( count >= 0 );
-	assert( pos + count <= size );
 	assert( buffer != nullptr );
 
 	// Перемещаем содержимое парвой половины буфера на count позиций влево.
 	// Для простых типов эффективней использовать не цикл, а функцию memcpy.
-	for( int i = pos + count; i < pos; i++ ) {
-		buffer[pos - count] = buffer[pos];
+	for( int i = pos + 1; i < size; i++ ) {
+		buffer[i - 1] = buffer[i];
 	}
-	size = pos - count;
+	size--;
 }
 
+// Удалить все элементы массива.
+void CArrayV1::DeleteAll()
+{
+	delete[] buffer;
+	buffer = 0;
+	capacity = 0;
+	size = 0;
+}
+
+// Доступ к элементу массива по индексу.
 int& CArrayV1::GetAt( int index )
 {
 	assert( index >= 0 );
 	assert( index < size );
 	assert( buffer != nullptr );
+
 	return buffer[index];
 }
 
-void CArrayV1::SetSize( int newSize )
+// Увеличивает размер буфера.
+void CArrayV1::grow()
 {
-	assert( newSize >= 0 );
-
-	// В буфере достаточно места для newSize.
-	// Оставляем старый буфер, просто меняем size.
-	if( newSize <= bufferSize ) {
-		size = newSize;
-		return;
-	}
-
-	// Полная очистка массива.
-	if( newSize == 0 ) {
-		delete[] buffer;
-		bufferSize = 0;
-		size = 0;
-		return;
-	}
-
 	// Выделяем буфер с запасом.
-	const int newBufferSize = newSize * 2;
-	int* newBuffer = new int[newBufferSize];
+	const int newCapacity = ( size == 0 ) ? 8 : size * 2;
+	int* newBuffer = new int[newCapacity];
 
 	// Копируем содержимое старого буфера в новый буфер.
 	for( int i = 0; i < size; i++ ) {
@@ -139,8 +126,7 @@ void CArrayV1::SetSize( int newSize )
 
 	// Переключаемся на новый буфер.
 	buffer = newBuffer;
-	bufferSize = newBufferSize;
-	size = newSize;
+	capacity = newCapacity;
 }
 
 // Для развлечения сделаем добавление элемента в конец массива в стиле std::cout <<
@@ -164,19 +150,18 @@ CArrayV1& CArrayV1::operator<<( int element )
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// main
 int main_ClassArrayV1()
 {
 	CArrayV1 a;
-	a.Add( 0 );
-	a.Add( 1 );
-	a.Add( 2 );
-	a.Add( 3, 5 );
+
+	for( int i = 0; i < 10; i++ ) {
+		a.Add( i );
+	}
+
 	a.DeleteAt( 2 );
-	a.SetSize( 7 );
 
 	// Использование CArrayV1::operator[]
-	a[5] = 10;
+	a[5] = 100;
 
 	// Использование CArrayV1::operator<<
 	a << 20 << 21 << 23;
