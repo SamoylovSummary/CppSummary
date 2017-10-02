@@ -1,4 +1,4 @@
-// Базовые типы.
+п»ї// Р‘Р°Р·РѕРІС‹Рµ С‚РёРїС‹.
 
 #include <iostream>
 
@@ -7,24 +7,24 @@ using namespace std;
 // main
 int main_BasicTypes()
 {
-	// Распространённые:
-	int a = 10;        // 4 байта
-	bool b = true;     // 1 байт
-	char c = 'A';      // 1 байт
-	double d = -1.5;    // 8 байт
+	// Р Р°СЃРїСЂРѕСЃС‚СЂР°РЅС‘РЅРЅС‹Рµ:
+	int a = 10;        // 4 Р±Р°Р№С‚Р°
+	bool b = true;     // 1 Р±Р°Р№С‚
+	char c = 'A';      // 1 Р±Р°Р№С‚
+	double d = -1.5;    // 8 Р±Р°Р№С‚
 
 	cout << "a = " << a << endl;
 	cout << "b = " << b << endl;
 	cout << "c = " << c << endl;
 	cout << "d = " << d << endl;
 
-	// Менее распространённые:
-	short s = -5;      // 2 байта
-	long l = 20;       // 4 байта
-	long long ll = 40; // 8 байт
-	__int64 i64 = 100; // 8 байт
-	wchar_t w = L'B';  // 2 или 4 байта
-	float f = 3.2f;    // 4 байта
+	// РњРµРЅРµРµ СЂР°СЃРїСЂРѕСЃС‚СЂР°РЅС‘РЅРЅС‹Рµ:
+	short s = -5;      // 2 Р±Р°Р№С‚Р°
+	long l = 20;       // 4 Р±Р°Р№С‚Р°
+	long long ll = 40; // 8 Р±Р°Р№С‚
+	__int64 i64 = 100; // 8 Р±Р°Р№С‚
+	wchar_t w = L'B';  // 2 РёР»Рё 4 Р±Р°Р№С‚Р°
+	float f = 3.2f;    // 4 Р±Р°Р№С‚Р°
 
 	cout << "s = " << s << endl;
 	cout << "l = " << l << endl;
@@ -33,7 +33,7 @@ int main_BasicTypes()
 	cout << "w = " << w << endl;
 	cout << "f = " << f << endl;
 
-	// Беззнаковые варианты типов:
+	// Р‘РµР·Р·РЅР°РєРѕРІС‹Рµ РІР°СЂРёР°РЅС‚С‹ С‚РёРїРѕРІ:
 	unsigned short us = -1;
 	unsigned int ui = -1;
 	unsigned long ul = -1;
@@ -44,9 +44,9 @@ int main_BasicTypes()
 	cout << "ul = " << ul << endl;
 	cout << "ui64 = " << ui64 << endl;
 
-	// Константы:
+	// РљРѕРЅСЃС‚Р°РЅС‚С‹:
 	const int ci = 20;
-	// Ошибка компиляции:
+	// РћС€РёР±РєР° РєРѕРјРїРёР»СЏС†РёРё:
 	// ci = 10;
 
 	cin.ignore();
