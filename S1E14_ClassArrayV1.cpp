@@ -1,7 +1,7 @@
 ﻿// Более сложное применение классов на примере динамического массива.
 
 #include <iostream>
-#include <assert.h>
+#include <cassert>
 
 using namespace std;
 

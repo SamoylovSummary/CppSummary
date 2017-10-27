@@ -8,7 +8,7 @@
 //  6) new / delete (4 вида памяти: статическая, константная, куча, стек)
 
 #include <iostream>
-#include <assert.h>
+#include <cassert>
 
 using namespace std;
 
