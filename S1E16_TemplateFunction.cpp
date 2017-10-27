@@ -1,4 +1,4 @@
-// Простейшие шаблоны.
+// Простейшие шаблонные функции.
 
 #include <iostream>
 #include <cassert>
@@ -36,6 +36,12 @@ bool operator<( const CPoint& point1, const CPoint& point2 )
 	return point1.Y < point2.Y;
 }
 
+// Пример оператора >, который вызывает оператор <
+bool operator>( const CPoint& point1, const CPoint& point2 )
+{
+	return point2 < point1;
+}
+
 // Наша альтернатива шаблонной функции max.
 template<class T>
 const T& myMax( const T& first, const T& second )
@@ -47,33 +53,24 @@ const T& myMax( const T& first, const T& second )
 	}
 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// Шаблонный класс пара.
-template<class T1, class T2>
-class CPair {
-public:
-	// Первый элемент пары.
-	T1 First;
-	// Второй элемент пары.
-	T2 Second;
-
-	CPair( const T1& first, const T2& second ) : First( first ), Second( second ) {}
-
-	void Print() const;
-};
-
-// Пример метода шаблонного класса.
-template<class T1, class T2>
-void CPair<T1, T2>::Print() const
+template<class T>
+void bubbleSort( T* a, int n )
 {
-	cout << "Pair[" << First << ", " << Second << "]" << endl;
+	for( int i = 1; i < n; i++ ) {
+		for( int j = 0; j < n - i; j++ ) {
+			if( a[j] > a[j + 1] ) {
+				const T tmp = a[j];
+				a[j] = a[j + 1];
+				a[j + 1] = tmp;
+			}
+		}
+	}
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // main
-int main_Templates()
+int main_TemplateFunction()
 {
 	// Примеры способов конструирования объектов.
 	CPoint a( 1, 2 );
@@ -103,18 +100,14 @@ int main_Templates()
 	// Для int:
 	cout << "myMax( 10, 20 ) = " << myMax( 10, 20 ) << endl;
 
-	// Пример использования шаблонного класса:
-	CPair<CPoint, int> myPair( CPoint( 5, 6 ), 10 );
-	myPair.Print();
+	// Пример шаблонной сортировки.
+	const int length = 4;
+	CPoint points[length] = { { 2, 5 }, { 3, 2}, { 1, 11 }, { 1, 10 } };
+	bubbleSort( points, length );
 
-	// std::vector - шаблонный динамический массив.
-	// Параметр шаблона - тип, хранящихся в нём объектов.
-	vector<CPoint> v;
-	v.push_back( CPoint( 11, 12 ) );
-	v.push_back( CPoint( 13, 14 ) );
-	v.push_back( CPoint( 15, 16 ) );
-	for( size_t i = 0; i < v.size(); i++ ) {
-		cout << v[i] << endl;
+	cout << "bubbleSort result:" << endl;
+	for( int i = 0; i < length; i++ ) {
+		cout << points[i] << endl;
 	}
 
 	system( "Pause" );
