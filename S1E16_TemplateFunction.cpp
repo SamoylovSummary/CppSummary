@@ -1,4 +1,4 @@
-// Простейшие шаблонные функции.
+п»ї// РџСЂРѕСЃС‚РµР№С€РёРµ С€Р°Р±Р»РѕРЅРЅС‹Рµ С„СѓРЅРєС†РёРё.
 
 #include <iostream>
 #include <cassert>
@@ -9,7 +9,7 @@ using namespace std;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// Точка на плоскости.
+// РўРѕС‡РєР° РЅР° РїР»РѕСЃРєРѕСЃС‚Рё.
 class CPoint {
 public:
 	int X;
@@ -19,7 +19,7 @@ public:
 	CPoint( int x, int y ) : X( x ), Y( y ) {}
 };
 
-// Определяем оператор <<, чтобы можно было писать так:
+// РћРїСЂРµРґРµР»СЏРµРј РѕРїРµСЂР°С‚РѕСЂ <<, С‡С‚РѕР±С‹ РјРѕР¶РЅРѕ Р±С‹Р»Рѕ РїРёСЃР°С‚СЊ С‚Р°Рє:
 // cout << myPoint;
 ostream& operator<<( ostream& s, const CPoint& point )
 {
@@ -27,7 +27,7 @@ ostream& operator<<( ostream& s, const CPoint& point )
 	return s;
 }
 
-// Пример оператора <
+// РџСЂРёРјРµСЂ РѕРїРµСЂР°С‚РѕСЂР° <
 bool operator<( const CPoint& point1, const CPoint& point2 )
 {
 	if( point1.X != point2.X ) {
@@ -36,13 +36,13 @@ bool operator<( const CPoint& point1, const CPoint& point2 )
 	return point1.Y < point2.Y;
 }
 
-// Пример оператора >, который вызывает оператор <
+// РџСЂРёРјРµСЂ РѕРїРµСЂР°С‚РѕСЂР° >, РєРѕС‚РѕСЂС‹Р№ РІС‹Р·С‹РІР°РµС‚ РѕРїРµСЂР°С‚РѕСЂ <
 bool operator>( const CPoint& point1, const CPoint& point2 )
 {
 	return point2 < point1;
 }
 
-// Наша альтернатива шаблонной функции max.
+// РќР°С€Р° Р°Р»СЊС‚РµСЂРЅР°С‚РёРІР° С€Р°Р±Р»РѕРЅРЅРѕР№ С„СѓРЅРєС†РёРё max.
 template<class T>
 const T& myMax( const T& first, const T& second )
 {
@@ -72,35 +72,35 @@ void bubbleSort( T* a, int n )
 // main
 int main_TemplateFunction()
 {
-	// Примеры способов конструирования объектов.
+	// РџСЂРёРјРµСЂС‹ СЃРїРѕСЃРѕР±РѕРІ РєРѕРЅСЃС‚СЂСѓРёСЂРѕРІР°РЅРёСЏ РѕР±СЉРµРєС‚РѕРІ.
 	CPoint a( 1, 2 );
 	CPoint b = CPoint( 3, 4 );
 	CPoint c;
 
-	// Здесь используется наш operator<< для CPoint.
+	// Р—РґРµСЃСЊ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РЅР°С€ operator<< РґР»СЏ CPoint.
 	cout << "a = " << a << endl;
 	cout << "b = " << b << endl;
 	cout << "c = " << c << endl;
 
-	// Вызов шаблонной функции max (определена в #include <algorithm>)
+	// Р’С‹Р·РѕРІ С€Р°Р±Р»РѕРЅРЅРѕР№ С„СѓРЅРєС†РёРё max (РѕРїСЂРµРґРµР»РµРЅР° РІ #include <algorithm>)
 	CPoint m = max( a, b );
 	cout << "m = " << m << endl;
 
-	// Можно так (теперь для min):
+	// РњРѕР¶РЅРѕ С‚Р°Рє (С‚РµРїРµСЂСЊ РґР»СЏ min):
 	cout << "min( a, b ) = " << min( a, b ) << endl;
 
-	// swap это тоже стандартная шаблонная функция:
+	// swap СЌС‚Рѕ С‚РѕР¶Рµ СЃС‚Р°РЅРґР°СЂС‚РЅР°СЏ С€Р°Р±Р»РѕРЅРЅР°СЏ С„СѓРЅРєС†РёСЏ:
 	swap( a, b );
 	cout << "a = " << a << endl;
 	cout << "b = " << b << endl;
 
-	// Вызов нашей шаблонной функции myMax.
-	// Для CPoint:
+	// Р’С‹Р·РѕРІ РЅР°С€РµР№ С€Р°Р±Р»РѕРЅРЅРѕР№ С„СѓРЅРєС†РёРё myMax.
+	// Р”Р»СЏ CPoint:
 	cout << "myMax( a, b ) = " << myMax( a, b ) << endl;
-	// Для int:
+	// Р”Р»СЏ int:
 	cout << "myMax( 10, 20 ) = " << myMax( 10, 20 ) << endl;
 
-	// Пример шаблонной сортировки.
+	// РџСЂРёРјРµСЂ С€Р°Р±Р»РѕРЅРЅРѕР№ СЃРѕСЂС‚РёСЂРѕРІРєРё.
 	const int length = 4;
 	CPoint points[length] = { { 2, 5 }, { 3, 2}, { 1, 11 }, { 1, 10 } };
 	bubbleSort( points, length );
