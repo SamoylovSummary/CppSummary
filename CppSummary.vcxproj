@@ -159,6 +159,7 @@
     <ClCompile Include="S1E15_Test.cpp" />
     <ClCompile Include="S1E16_TemplateFunction.cpp" />
     <ClCompile Include="S1E17_TemplateClass.cpp" />
+    <ClCompile Include="S1E18_AVLTree.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Input.txt" />
