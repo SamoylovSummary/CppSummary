@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <cassert>
+#include <time.h>
 
 using namespace std;
 
@@ -29,6 +30,9 @@ int main_Test()
 	// Теперь содержимое Output.txt будет доступно через std::cout.
 	freopen( "Output.txt", "w", stdout );
 
+	// Запоминаем момент старта.
+	const clock_t start = clock();
+
 	// Читаем массив из Input.txt.
 	int length = 0;
 	cin >> length;
@@ -48,6 +52,10 @@ int main_Test()
 	for( int i = 0; i < length; i++ ) {
 		cout << a[i] << " ";
 	}
+
+	// Выводим время в миллисекундах.
+	const double time = ( clock() - start ) * 1000. / CLOCKS_PER_SEC;
+	cout << endl << "Total time: " << time << " ms" << endl;
 
 	return 0;
 }
